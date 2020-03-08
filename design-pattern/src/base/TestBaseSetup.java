@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
@@ -44,22 +45,14 @@ public class TestBaseSetup extends InitializeLogging{
 	}
 	
 	private static WebDriver initChromeDriver(String appURL) {
+		
 		System.out.println("Launching google chrome");
 		
-		/**
-	     * Old Way
-	     * Set property which browser to use (browserName, browserDriverLocation)
-	     * System.setProperty("webdriver.chrome.driver", "./src\\webdrivers\\chromedriver.exe");
-	     */
-		
-		/*
-		 * https://github.com/bonigarcia/webdrivermanager/ 
-		 * Set which browser to use
-		 */
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--start-maximized");
+		// Set which browser to use
+		ChromeOptions cOptions = new ChromeOptions();
+		cOptions.addArguments("--start-maximized");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		capabilities.setCapability(ChromeOptions.CAPABILITY, cOptions);
 		capabilities.setCapability("pageLoadStrategy", "none");
 		WebDriverManager.chromedriver().setup();
 		
@@ -83,23 +76,14 @@ public class TestBaseSetup extends InitializeLogging{
 	private static WebDriver initFirefoxDriver(String appURL) {
 		System.out.println("Launching Firefox browser..");
 		
-		/**
-	     * Old Way
-	     * Set property which browser to use (browserName, browserDriverLocation)
-	     * System.setProperty("webdriver.firefox.driver", "./src\\webdrivers\\geckodriver.exe");;
-	     */
-		
-		/*
-		 * https://github.com/bonigarcia/webdrivermanager/ 
-		 * Set which browser to use
-		 */
-		FirefoxOptions options2 = new FirefoxOptions();
-		options2.addArguments("--start-maximized");
+		// Set which browser to use
+		FirefoxOptions fOptions = new FirefoxOptions();
+		fOptions.addArguments("--start-maximized");
 		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options2);
+		capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, fOptions);
 		capabilities.setCapability("marionette", true);
 		FirefoxDriverManager.getInstance(FIREFOX).arch64().setup();
-		
+				
 		// Initializing instance of firefox webdriver
 		WebDriver driver = new FirefoxDriver();
 		
@@ -120,7 +104,7 @@ public class TestBaseSetup extends InitializeLogging{
 	// Change the parameters in the testng.xml
 	@Parameters({ "browserType", "appURL" })
 	@BeforeClass
-	public void initializeTestBaseSetup(String browserType, String appURL) {
+	public void initializeTestBaseSetup(@Optional("browserType")String browserType, String appURL) {
 		try {
 			setDriver(browserType, appURL);
 

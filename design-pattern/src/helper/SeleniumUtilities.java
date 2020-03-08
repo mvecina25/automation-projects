@@ -2,6 +2,7 @@ package helper;
 
 import static org.testng.Assert.assertFalse;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -51,6 +52,26 @@ public class SeleniumUtilities {
 		return webElement;
 	}
 	
+	public WebElement waitForElementToBeClickable(WebElement elementLocator, int timeout) {
+		
+		WebElement webElement = null;
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
+
+		try {
+			System.out.println(elementLocator);
+			webElement = wait.until(ExpectedConditions.elementToBeClickable(elementLocator));
+			
+		} catch (WebDriverException e) {
+			// TODO: handle exception
+		}
+		
+		if (webElement == null) {
+			assertFalse(true, "WebElement not found within " + timeout + " seconds. Test Failed - " + "Element: " + elementLocator + "\nCurrent Page: " + driver.getCurrentUrl());
+		}
+		
+		return webElement;
+	}
+	
     public void waitForPageLoad() {
         try {
             Thread.sleep(250);
@@ -58,6 +79,34 @@ public class SeleniumUtilities {
             e.printStackTrace();
         }
     }
+    
+	public void selectProductItemByCSSNameAndPrice(String cssSelector, String itemName, String itemPrice) {
+		
+		List<WebElement> productList = driver.findElements(By.cssSelector(cssSelector));
+		
+		System.out.println(productList.size());
+		
+		for (WebElement item: productList ) {
+				
+			String selectedItem = item.getText();
+			
+			System.out.println("THIS IS THE ELEMENT 1: " + selectedItem);
+			
+			if (selectedItem.contains(itemName)) {   			
+				
+				if (selectedItem.contains(itemPrice)) {	
+					
+	            	System.out.println("THIS IS THE ELEMENT 2:" + selectedItem);
+	            	
+	        		SeleniumUtilities util = new SeleniumUtilities(driver);
+	        		
+	        		util.waitForElementToBeClickable(item, 10).click();
+	        		
+	        		break;
+				}
+            }	
+		}
+	}
 
 		
 }

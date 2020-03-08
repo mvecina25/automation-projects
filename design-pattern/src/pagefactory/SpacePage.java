@@ -14,8 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
-
 import helper.SeleniumUtilities;
 import okio.Timeout;
 

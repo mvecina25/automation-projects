@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="20" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="20" name="Chrome Test 8(failed)" parallel="tests">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="nodeURL" value="http://localhost:4545/wd/hub"/>
+    <classes>
+      <class name="com.wtech.grid.TestParallel">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="appleSite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.wtech.grid.TestParallel -->
+    </classes>
+  </test> <!-- Chrome Test 8(failed) -->
+  <test thread-count="20" name="Chrome Test 5(failed)" parallel="tests">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="nodeURL" value="http://localhost:4545/wd/hub"/>
+    <classes>
+      <class name="com.wtech.grid.TestParallel">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="appleSite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.wtech.grid.TestParallel -->
+    </classes>
+  </test> <!-- Chrome Test 5(failed) -->
+  <test thread-count="20" name="Chrome Test 4(failed)" parallel="tests">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="nodeURL" value="http://localhost:4545/wd/hub"/>
+    <classes>
+      <class name="com.wtech.grid.TestParallel">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="appleSite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.wtech.grid.TestParallel -->
+    </classes>
+  </test> <!-- Chrome Test 4(failed) -->
+  <test thread-count="20" name="Chrome Test 6(failed)" parallel="tests">
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="nodeURL" value="http://localhost:4545/wd/hub"/>
+    <classes>
+      <class name="com.wtech.grid.TestParallel">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="appleSite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.wtech.grid.TestParallel -->
+    </classes>
+  </test> <!-- Chrome Test 6(failed) -->
+</suite> <!-- Failed suite [Suite] -->

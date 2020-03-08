@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="73842" started-at="2020-03-03T21:52:45 SGT" finished-at="2020-03-03T21:53:59 SGT">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="73842" started-at="2020-03-03T21:52:45 SGT" finished-at="2020-03-03T21:53:59 SGT">
+      <class name="testsuites.TestCase1">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:testsuites.TestCase1@42f93a98]" name="initializeTestBaseSetup" is-config="true" duration-ms="73572" started-at="2020-03-03T21:52:45 SGT" finished-at="2020-03-03T21:53:59 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.justfly.com/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeTestBaseSetup -->
+        <test-method status="PASS" signature="setUp(org.testng.ITestContext)[pri:0, instance:testsuites.TestCase1@42f93a98]" name="setUp" is-config="true" duration-ms="2" started-at="2020-03-03T21:53:59 SGT" finished-at="2020-03-03T21:53:59 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@23aa363a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testMethod1()[pri:0, instance:testsuites.TestCase1@42f93a98]" name="testMethod1" duration-ms="201" started-at="2020-03-03T21:53:59 SGT" finished-at="2020-03-03T21:53:59 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMethod1 -->
+      </class> <!-- testsuites.TestCase1 -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
